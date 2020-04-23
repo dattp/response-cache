@@ -1,0 +1,25 @@
+{
+  "name": "response-cache",
+  "version": "0.1.0",
+  "description": "cache for API response in express framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "keywords": [
+    "cache",
+    "response",
+    "api",
+    "express",
+    "redis",
+    "duration",
+    "middleware",
+    "memory"
+  ],
+  "author": "DatPT <phamtiendatkhanh@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^25.4.0",
+    "redis": "^3.0.2"
+  }
+}
