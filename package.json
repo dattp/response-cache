@@ -29,5 +29,6 @@
   "devDependencies": {
     "jest": "^25.4.0",
     "redis": "^3.0.2"
-  }
+  },
+  "dependencies": {}
 }
