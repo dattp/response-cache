@@ -1,7 +1,6 @@
 <p align="center">
     <h2 align="center">Response cache</h2>
-    <h4 align="center">Simple response caching middleware for ExpressJS using Redis
-</h4>
+    <h4 align="center">Simple response caching middleware for ExpressJS using Redis</h4>
 </p>
 
 ---
@@ -33,7 +32,7 @@ app.get('/api/example', responseCache.cache(option), (req, res) => {
 // Cache all routes
 app.use(responseCache.cache(option))
 ```
-####Clear cache
+#### Clear cache
 ```js
 // create redisClient
 const redis = require('redis')
