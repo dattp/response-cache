@@ -127,16 +127,33 @@ function CacheResponse(redisClient) {
     }
   }
 
-  function clear(key) {
-    if (key) {
-      const keyInRedis = `${branch}${key}:*`
+  function clear (prefixKey, params) {
+    if (prefixKey) {
+      const keyInRedis = `${branch}${prefixKey}:*`
       redisClient.keys(keyInRedis, function (err, keys) {
         if (err) {
           console.log(err)
           return
         }
         if (keys.length > 0) {
-          redisClient.del(keys)
+          const {urlAPI, level, type, date} = params
+          if (urlAPI) {
+          // my custom
+            const keyTmp = []
+            keys.forEach(item => {
+              if (urlAPI && urlAPI.includes(item)) {
+                keyTmp.push(item)
+              }
+              if (level && type && item.includes(level) && item.includes(type) && item.includes(date)) {
+                keyTmp.push(item)
+              }
+            })
+            if (keyTmp.length > 0) {
+              redisClient.del(keyTmp)
+            }
+          } else {
+            redisClient.del(keys)
+          }
         }
       })
     }
