@@ -1,6 +1,6 @@
 {
   "name": "response-cache",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Simple response caching middleware for ExpressJS using Redis",
   "main": "index.js",
   "keywords": [
