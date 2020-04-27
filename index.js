@@ -147,6 +147,12 @@ function CacheResponse(redisClient) {
               if (level && type && item.includes(level) && item.includes(type) && item.includes(date)) {
                 keyTmp.push(item)
               }
+              if (level && item.includes(level) && item.includes(date) && !keyTmp.includes(item)) {
+                keyTmp.push(item)
+              }
+              if (type && item.includes(type) && item.includes(date) && !keyTmp.includes(item)) {
+                keyTmp.push(item)
+              }
             })
             if (keyTmp.length > 0) {
               redisClient.del(keyTmp)
