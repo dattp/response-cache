@@ -137,7 +137,7 @@ function CacheResponse(redisClient) {
         }
         if (keys.length > 0) {
           const {urlAPI, level, type, date} = params
-          if (urlAPI) {
+          if (params) {
           // my custom
             const keyTmp = []
             keys.forEach(item => {

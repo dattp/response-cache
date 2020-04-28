@@ -28,7 +28,6 @@ const options = {
 app.get('/api/example', responseCache.cache(option), (req, res) => {
 	  res.send('GET request to the homepage')
   })
-  
 // Cache all routes
 app.use(responseCache.cache(option))
 ```
@@ -54,4 +53,12 @@ app.get('/api/clear', (req, res) => {
 | -------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | duration                       | 12 hours| ttl in redis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | key                       | req.originalUrl      | key in redis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| prefix_key                       |      | string: key in redis has a same prefix to facilitate remove multiple keys                                                                                                                                                                                                                                                                                                                                                                                                           |
+| prefix_key                       |      | *string (*boolean)                                                                                                                                                                                                                                                                                                                                                                                   |
+
+#### 1. responseCache.cache(option)
+* I defined a string const `cache-response:` to Centralized management by key in redis. Each url saved to Redis has the form: `cache-response:/api/example`
+* I provide a `prefix_key` property with 2 data type: string and boolean to save in Redis in group.
+
+
+... update
+
